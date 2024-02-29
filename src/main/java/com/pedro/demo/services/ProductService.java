@@ -1,14 +1,14 @@
-package com.devsuperior.demo.services;
+package com.pedro.demo.services;
 
 import java.util.List;
 
+import com.pedro.demo.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.devsuperior.demo.dto.ProductDTO;
-import com.devsuperior.demo.entities.Product;
-import com.devsuperior.demo.repositories.ProductRepository;
+import com.pedro.demo.dto.ProductDTO;
+import com.pedro.demo.entities.Product;
 
 @Service
 public class ProductService {

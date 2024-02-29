@@ -1,4 +1,4 @@
-package com.devsuperior.demo.controllers;
+package com.pedro.demo.controllers;
 
 import java.net.URI;
 import java.util.List;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.devsuperior.demo.dto.ProductDTO;
-import com.devsuperior.demo.services.ProductService;
+import com.pedro.demo.dto.ProductDTO;
+import com.pedro.demo.services.ProductService;
 
 @RestController
 @RequestMapping(value = "/products")
