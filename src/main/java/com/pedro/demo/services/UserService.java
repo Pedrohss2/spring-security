@@ -1,10 +1,9 @@
 package com.pedro.demo.services;
 
-import com.pedro.demo.entities.Role;
+import com.pedro.demo.entities.UserRole;
 import com.pedro.demo.entities.User;
 import com.pedro.demo.projection.UserDetailsProjection;
 import com.pedro.demo.repositories.UserRepository;
-import com.sun.jdi.request.BreakpointRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -33,7 +32,7 @@ public class UserService implements UserDetailsService {
         user.setPassword(result.get(0).getPassword());
 
         for(UserDetailsProjection role : result) {
-            user.addRole(new Role(role.getRoleId(), role.getAuthotiry()));
+            user.addRole(new UserRole(role.getRoleId(), role.getAuthotiry()));
         }
 
         return user;
