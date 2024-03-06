@@ -1,9 +1,11 @@
 package com.pedro.demo.controllers;
 
 import com.pedro.demo.dto.AuthenticationDTO;
+import com.pedro.demo.dto.LoginResponseDTO;
 import com.pedro.demo.dto.RegisterDTO;
 import com.pedro.demo.entities.User;
 import com.pedro.demo.repositories.UserRepository;
+import com.pedro.demo.services.TokenService;
 import org.hibernate.query.sql.internal.ParameterRecognizerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,13 +28,16 @@ public class AuthenticationController {
     @Autowired
     private UserRepository repository;
 
+    @Autowired
+    private TokenService tokenService;
+
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody AuthenticationDTO dto) {
         var usernamePassword = new UsernamePasswordAuthenticationToken(dto.login(), dto.password());
         var auth = this.authenticationManager.authenticate(usernamePassword);
+        var token = tokenService.generateToken((User) auth.getPrincipal());
 
-
-        return ResponseEntity.ok(auth);
+        return ResponseEntity.ok(new LoginResponseDTO(token));
     }
 
     @PostMapping("/register")
