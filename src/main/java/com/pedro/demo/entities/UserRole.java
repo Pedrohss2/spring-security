@@ -10,8 +10,8 @@ import java.util.Set;
 
 public enum UserRole  {
 
-    ADMIN("admin"),
-    USER("user");
+    ADMIN("ADMIN"),
+    USER("USER");
 
     private String role;
 
